@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Item from './Item'
 import Form from './Form'
-
 
 class List extends Component {
 
     constructor(props){
         super(props)
-        this.state = { list: [{id: 1, title: 'Buy groceries'}, {id: 2, title: 'Clean the house'}, {id: 3, title: 'Call Sam'}] }
+        this.state = {
+            list: [{id: 1, title: 'Grocery shop'}, {id: 2, title: 'Pick up dog food'}]
+        }
     }
 
     handleDelete = (id) => {
@@ -20,17 +21,18 @@ class List extends Component {
     }
 
     render(){
-        const itemList  = this.state.list.map(item => {
-            return <Item id={item.id} key={item.id} title={item.title} handleOnDelete={this.handleDelete}/>
-        }
-    )
+
+        const itemList = this.state.list.map(item => {
+            return <Item key={item.id} id={item.id} title={item.title} handleOnDelete={this.handleDelete}/>
+        })
         return(
-            <div>
+           <>
                 {itemList}
                 <Form />
-            </div>
+           </>
         )
     }
+
 }
 
 export default List
