@@ -20,6 +20,19 @@ class List extends Component {
         })
     }
 
+    addNewTodo = (data) => {
+        console.log(data)
+            const newTodo = {
+                id: this.state.list.length + 1,
+                title: data.title
+            }
+        this.setState((prevState) => {
+            return {
+                list: [...prevState.list, newTodo]
+            }
+        })
+    }
+
     render(){
 
         const itemList = this.state.list.map(item => {
@@ -28,7 +41,7 @@ class List extends Component {
         return(
            <>
                 {itemList}
-                <Form />
+                <Form handleOnSubmit={this.addNewTodo }/>
            </>
         )
     }

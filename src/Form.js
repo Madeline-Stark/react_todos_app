@@ -19,11 +19,20 @@ class Form extends Component {
         
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.props.handleOnSubmit(this.state)
+        this.setState({
+            title: ""
+        })
+    }
+
     render(){
         return(
             <form>
                 <label>New Todo: </label>
                 <input type="text" value={this.state.value} onChange={this.handleChange}></input>
+                <input type="submit" onClick={this.handleSubmit}></input>
             </form>
         )
     }
