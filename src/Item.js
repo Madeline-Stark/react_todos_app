@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Item = ({id, title, handleOnDelete}) => {
+const Item = ({title, handleOnDelete, id}) => {
 
     const onDelete = function(){
         handleOnDelete(id)
     }
+
     return (
         <>
             <h2>{title}</h2>
@@ -14,4 +15,3 @@ const Item = ({id, title, handleOnDelete}) => {
 }
 
 export default Item
-

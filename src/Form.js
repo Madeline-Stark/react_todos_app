@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 class Form extends Component {
     constructor(props){
         super(props)
@@ -10,13 +9,13 @@ class Form extends Component {
     }
 
     handleChange = (e) => {
-        if (e.target.value.length > 6){
-            alert('too long!')
-        } 
+        //console.log(e.target.value)
+        // if (e.target.value.length > 6) {
+        //     alert('too long!')
+        // }
         this.setState({
             title: e.target.value
-        }) 
-        
+        })
     }
 
     handleSubmit = (e) => {
@@ -30,8 +29,8 @@ class Form extends Component {
     render(){
         return(
             <form>
-                <label>New Todo: </label>
-                <input type="text" value={this.state.value} onChange={this.handleChange}></input>
+                <label>New ToDo</label>
+                <input type="text" value={this.state.title} onChange={this.handleChange}></input>
                 <input type="submit" onClick={this.handleSubmit}></input>
             </form>
         )

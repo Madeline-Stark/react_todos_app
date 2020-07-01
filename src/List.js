@@ -7,7 +7,7 @@ class List extends Component {
     constructor(props){
         super(props)
         this.state = {
-            list: [{id: 1, title: 'Grocery shop'}, {id: 2, title: 'Pick up dog food'}]
+            list: [{id: 1, title: 'make tie dye shirts'}, {id: 2, title: 'make tie dye face masks'}]
         }
     }
 
@@ -22,10 +22,10 @@ class List extends Component {
 
     addNewTodo = (data) => {
         console.log(data)
-            const newTodo = {
-                id: this.state.list.length + 1,
-                title: data.title
-            }
+        const newTodo = {
+            id: this.state.list.length + 1,
+            title: data.title
+        }
         this.setState((prevState) => {
             return {
                 list: [...prevState.list, newTodo]
@@ -34,18 +34,16 @@ class List extends Component {
     }
 
     render(){
-
         const itemList = this.state.list.map(item => {
             return <Item key={item.id} id={item.id} title={item.title} handleOnDelete={this.handleDelete}/>
         })
         return(
-           <>
+            <>
                 {itemList}
-                <Form handleOnSubmit={this.addNewTodo }/>
-           </>
+                <Form handleOnSubmit={this.addNewTodo}/>
+            </>
         )
     }
-
 }
 
 export default List
